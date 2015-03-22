@@ -1,0 +1,18 @@
+### Managed by Chef
+directory = <%= node['rtorrent']['directory'] %>
+
+<%- node['rtorrent']['config'].map do |key, value| -%>
+<%= "#{key} = #{value}" %>
+<%- end -%>
+
+<% node['rtorrent']['watch']['dirs'].each do |name| -%>
+<%= %Q{schedule = watch_#{name}, 10, 10, "load.normal=#{node['rtorrent']['watch']['basedir']}/#{name}/*.torrent,d.directory.set=#{node['rtorrent']['directory']}/#{name}/"} %>
+<% end -%>
+
+schedule = tied_directory, 10, 10, start_tied=
+schedule = untied_directory, 10, 10, stop_untied=
+schedule = untied_directory, 10, 10, close_untied=
+schedule = untied_directory, 10, 10, remove_untied=
+
+# Close torrents when diskspace is low. */
+schedule = low_diskspace,5,60,close_low_diskspace=100M
