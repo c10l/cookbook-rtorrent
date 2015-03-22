@@ -12,12 +12,22 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-name             "rtorrent"
-maintainer       "Cassiano Leal"
-maintainer_email "cassianoleal@gmail.com"
-license          "apache2"
-description      "Installs/Configures rtorrent"
-long_description "Installs/Configures rtorrent"
-version          "0.1.0"
+#
+# Cookbook Name:: rtorrent
+# Recipe:: default
+#
+# Copyright (c) 2015 The Authors, All Rights Reserved.
 
-depends "apt"
+template "/etc/init/rtorrent.conf" do
+  action :create
+  owner "root"
+  group "root"
+  mode "0644"
+  source "init_upstart.erb"
+  notifies :restart, "service[rtorrent]"
+end
+
+service "rtorrent" do
+  action [ :enable, :start ]
+  provider Chef::Provider::Service::Upstart
+end

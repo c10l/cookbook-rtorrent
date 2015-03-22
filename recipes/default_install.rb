@@ -12,12 +12,22 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-name             "rtorrent"
-maintainer       "Cassiano Leal"
-maintainer_email "cassianoleal@gmail.com"
-license          "apache2"
-description      "Installs/Configures rtorrent"
-long_description "Installs/Configures rtorrent"
-version          "0.1.0"
+#
+# Cookbook Name:: rtorrent
+# Recipe:: default
+#
+# Copyright (c) 2015 The Authors, All Rights Reserved.
 
-depends "apt"
+user node["rtorrent"]["user"] do
+  action :create
+  manage_home true
+  home node["rtorrent"]["user_home"]
+  shell node["rtorrent"]["user_shell"]
+  system true
+end
+
+%w{ rtorrent tmux }.each do |pkg|
+  package pkg do
+    action :upgrade
+  end
+end

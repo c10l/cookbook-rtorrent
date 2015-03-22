@@ -1,0 +1,9 @@
+description "rtorrent"
+author "Cassiano Leal"
+
+start on filesystem and net-device-up IFACE!=lo
+stop on runlevel [016]
+
+respawn
+
+exec sudo -u <%= node["rtorrent"]["user"] %> HOME=<%= node["rtorrent"]["user_home"] %> tmux new-session -s rtorrent rtorrent

@@ -1,18 +1,21 @@
 ---
 driver:
-  name: docker
-  socket: <%= ENV["DOCKER_HOST"] %>
-  use_sudo: false
+  name: vagrant
+  # name: docker
+  # socket: <%= ENV["DOCKER_HOST"] %>
+  # use_sudo: false
 
 provisioner:
   name: chef_zero
 
 platforms:
-  - name: ubuntu-12.04
+  # - name: ubuntu-12.04
+  - name: ubuntu-14.10
   # - name: centos-6.6
 
 suites:
   - name: default
     run_list:
+      - recipe[apt]
       - recipe[rtorrent::default]
     attributes:
