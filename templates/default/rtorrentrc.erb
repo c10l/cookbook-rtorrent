@@ -1,12 +1,12 @@
 ### Managed by Chef
-directory = <%= node['rtorrent']['directory'] %>
+directory = <%= node["rtorrent"]["directory"] %>
 
-<%- node['rtorrent']['config'].map do |key, value| -%>
+<%- node["rtorrent"]["config"].map do |key, value| -%>
 <%= "#{key} = #{value}" %>
 <%- end -%>
 
-<% node['rtorrent']['watch']['dirs'].each do |name| -%>
-<%= %Q{schedule = watch_#{name}, 10, 10, "load.normal=#{node['rtorrent']['watch']['basedir']}/#{name}/*.torrent,d.directory.set=#{node['rtorrent']['directory']}/#{name}/"} %>
+<% node["rtorrent"]["watch"]["dirs"].each do |name| -%>
+<%= %Q{schedule = watch_#{name}, 10, 10, "load.normal=#{node["rtorrent"]["watch"]["basedir"]}/#{name}/*.torrent,d.directory.set=#{node["rtorrent"]["directory"]}/#{name}/"} %>
 <% end -%>
 
 schedule = tied_directory, 10, 10, start_tied=

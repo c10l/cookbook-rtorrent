@@ -12,25 +12,25 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-default['rtorrent']['user'] = 'rtorrent'
-default['rtorrent']['user_home'] = '/var/lib/rtorrent'
-default['rtorrent']['user_shell'] = '/bin/false'
+default["rtorrent"]["user"] = "rtorrent"
+default["rtorrent"]["user_home"] = "/var/lib/rtorrent"
+default["rtorrent"]["user_shell"] = "/usr/sbin/nologin"
 
-default['rtorrent']['directory'] = "#{node['rtorrent']['user_home']}/data"
+default["rtorrent"]["directory"] = "#{node["rtorrent"]["user_home"]}/data"
 
-default['rtorrent']['watch']['basedir'] = "#{node['rtorrent']['directory']}/watch"
-default['rtorrent']['watch']['dirs'] = %w{ movies tv music unclassified }
+default["rtorrent"]["watch"]["basedir"] = "#{node["rtorrent"]["directory"]}/watch"
+default["rtorrent"]["watch"]["dirs"] = %w{ movies tv music unclassified }
 
-default['rtorrent']['config']['session'] = "#{node['rtorrent']['user_home']}/.sessions"
-default['rtorrent']['config']['port_range'] = '61000-61999'
-default['rtorrent']['config']['min_peers'] = 2
-default['rtorrent']['config']['max_peers'] = 50
-default['rtorrent']['config']['min_peers_seed'] = '-1'
-default['rtorrent']['config']['max_peers_seed'] = '-1'
-default['rtorrent']['config']['max_uploads'] = 30
-default['rtorrent']['config']['dht'] = 'auto'
-default['rtorrent']['config']['peer_exchange'] = 'yes'
-default['rtorrent']['config']['scgi_port'] = '127.0.0.1:5000'
-default['rtorrent']['config']['encryption'] = 'require,allow_incoming,try_outgoing,enable_retry'
-default['rtorrent']['config']['dht'] = 'auto'
-default['rtorrent']['config']['peer_exchange'] = 'no'
+default["rtorrent"]["config"]["session"] = "#{node["rtorrent"]["user_home"]}/.sessions"
+default["rtorrent"]["config"]["port_range"] = "61000-61999"
+default["rtorrent"]["config"]["min_peers"] = 2
+default["rtorrent"]["config"]["max_peers"] = 50
+default["rtorrent"]["config"]["min_peers_seed"] = "-1"
+default["rtorrent"]["config"]["max_peers_seed"] = "-1"
+default["rtorrent"]["config"]["max_uploads"] = 30
+default["rtorrent"]["config"]["dht"] = "auto"
+default["rtorrent"]["config"]["peer_exchange"] = "yes"
+default["rtorrent"]["config"]["scgi_port"] = "127.0.0.1:5000"
+default["rtorrent"]["config"]["encryption"] = "require,allow_incoming,try_outgoing,enable_retry"
+default["rtorrent"]["config"]["dht"] = "auto"
+default["rtorrent"]["config"]["peer_exchange"] = "no"

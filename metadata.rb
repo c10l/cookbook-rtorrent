@@ -12,10 +12,10 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-name             'rtorrent'
-maintainer       'Cassiano Leal'
-maintainer_email 'cassianoleal@gmail.com'
-license          'apache2'
-description      'Installs/Configures rtorrent'
-long_description 'Installs/Configures rtorrent'
-version          '0.1.0'
+name             "rtorrent"
+maintainer       "Cassiano Leal"
+maintainer_email "cassianoleal@gmail.com"
+license          "apache2"
+description      "Installs/Configures rtorrent"
+long_description "Installs/Configures rtorrent"
+version          "0.1.0"

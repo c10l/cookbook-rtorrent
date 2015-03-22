@@ -1,7 +1,7 @@
 ---
 driver:
   name: docker
-  socket: <%= ENV['DOCKER_HOST'] %>
+  socket: <%= ENV["DOCKER_HOST"] %>
   use_sudo: false
 
 provisioner:

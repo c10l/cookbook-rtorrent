@@ -18,11 +18,11 @@
 #
 # Copyright (c) 2015 The Authors, All Rights Reserved.
 
-user node['rtorrent']['user'] do
+user node["rtorrent"]["user"] do
   action :create
   manage_home true
-  home node['rtorrent']['user_home']
-  shell node['rtorrent']['user_shell']
+  home node["rtorrent"]["user_home"]
+  shell node["rtorrent"]["user_shell"]
   system true
 end
 
@@ -32,9 +32,17 @@ end
   end
 end
 
-template "#{node['rtorrent']['user_home']}/.rtorrent.rc" do
+directory node["rtorrent"]["config"]["session"] do
   action :create
-  owner node['rtorrent']['user']
+  owner node["rtorrent"]["user"]
+  group node["rtorrent"]["user"]
+  mode "0755"
+end
+
+template "#{node["rtorrent"]["user_home"]}/.rtorrent.rc" do
+  action :create
+  owner node["rtorrent"]["user"]
+  group node["rtorrent"]["user"]
   mode "0644"
   source "rtorrentrc.erb"
 end
