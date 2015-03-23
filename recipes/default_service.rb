@@ -18,16 +18,16 @@
 #
 # Copyright (c) 2015 The Authors, All Rights Reserved.
 
-template "/etc/init/rtorrent.conf" do
+template "/etc/init.d/rtorrent" do
   action :create
   owner "root"
   group "root"
-  mode "0644"
-  source "init_upstart.erb"
+  mode "0755"
+  source "init_sysv.erb"
   notifies :restart, "service[rtorrent]"
 end
 
 service "rtorrent" do
   action [ :enable, :start ]
-  provider Chef::Provider::Service::Upstart
+  provider Chef::Provider::Service::Init::Debian
 end

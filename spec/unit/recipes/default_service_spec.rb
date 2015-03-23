@@ -6,7 +6,7 @@
 
 require "spec_helper"
 
-describe "rtorrent::default" do
+describe "rtorrent::default_service" do
 
   context "When all attributes are default, on an unspecified platform" do
 
@@ -15,9 +15,8 @@ describe "rtorrent::default" do
 
     it { chef } # This should not raise an error
 
-    it { expect(chef).to include_recipe("rtorrent::default_install") }
-    it { expect(chef).to include_recipe("rtorrent::default_config") }
-    it { expect(chef).to include_recipe("rtorrent::default_service") }
+    it { expect(chef).to create_template("/etc/init.d/rtorrent").with_mode("0755") }
+    it { expect(chef).to start_service("rtorrent") }
 
   end
 end
