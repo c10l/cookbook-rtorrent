@@ -10,7 +10,7 @@ describe "rtorrent::default_install" do
 
   context "When all attributes are default, on an unspecified platform" do
 
-    let(:runner) { ChefSpec::Runner.new }
+    let(:runner) { ChefSpec::SoloRunner.new }
     let(:chef) { runner.converge(described_recipe) }
 
     it { chef } # This should not raise an error

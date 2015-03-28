@@ -14,7 +14,7 @@
 
 #
 # Cookbook Name:: rtorrent
-# Recipe:: default
+# Recipe:: default_install
 #
 # Copyright (c) 2015 The Authors, All Rights Reserved.
 
