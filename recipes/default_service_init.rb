@@ -14,8 +14,20 @@
 
 #
 # Cookbook Name:: rtorrent
-# Recipe:: default_service
+# Recipe:: default_service_init
 #
 # Copyright (c) 2015 Cassiano Leal, Apache License v2.
 
-include_recipe "rtorrent::default_service_init"
+template "/etc/init.d/rtorrent" do
+  action :create
+  owner "root"
+  group "root"
+  mode "0755"
+  source "init_sysv.erb"
+  notifies :restart, "service[rtorrent]"
+end
+
+service "rtorrent" do
+  action [ :enable, :start ]
+  provider Chef::Provider::Service::Init::Debian
+end
