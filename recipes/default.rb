@@ -16,7 +16,7 @@
 # Cookbook Name:: rtorrent
 # Recipe:: default
 #
-# Copyright (c) 2015 The Authors, All Rights Reserved.
+# Copyright (c) 2015 Cassiano Leal, Apache License v2.
 
 include_recipe "rtorrent::default_install"
 include_recipe "rtorrent::default_config"

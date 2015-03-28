@@ -1,8 +1,8 @@
 #
 # Cookbook Name:: rtorrent
-# Spec:: default
+# Spec:: default_service
 #
-# Copyright (c) 2015 The Authors, All Rights Reserved.
+# Copyright (c) 2015 Cassiano Leal, Apache License v2.
 
 require "spec_helper"
 

@@ -16,7 +16,7 @@
 # Cookbook Name:: rtorrent
 # Recipe:: default_install
 #
-# Copyright (c) 2015 The Authors, All Rights Reserved.
+# Copyright (c) 2015 Cassiano Leal, Apache License v2.
 
 user node["rtorrent"]["user"] do
   action :create
